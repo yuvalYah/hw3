@@ -3,6 +3,21 @@
 #define false 0
 #define true 1
 
+
+int main(){
+    char word[WORD];
+    char option[WORD];
+    getword(word);
+    getword(option);
+    if(*option == 'a')
+    {
+        print_lines(word);
+    } else if(*option == 'b') {
+        print_similar_words(word);
+    }
+    return 0;
+
+}
 int length(char str[]){
     int lenght = 0;
     while(str[lenght] != '\0'){

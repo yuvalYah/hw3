@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "isort.h"
+#define SIZE 50
 
 int shift_element(int* arr, int i)
 {
@@ -61,4 +62,21 @@ void insertion_sort(int* arr , int len)
            
         }
     }
+}
+int main(){
+    int arr[SIZE]={0};
+    int index = 0;
+    while(index < SIZE){
+        int k;
+        scanf("%d" , &k);
+        *(arr+index) = k;
+        index++;
+    }
+    insertion_sort(arr , SIZE);
+    index = 0;
+    while(index < SIZE){
+        printf("%d," ,*(arr+index));
+        index++;
+    }
+    printf("\n");
 }
