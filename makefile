@@ -1,6 +1,6 @@
 CC=gcc
 AR=ar
-FLAGS=-Wall -g -Wno-misleading-indentation
+FLAGS=-Wall -g
 
 all: isort txtfind
 isort: isort.o

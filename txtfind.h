@@ -1,6 +1,3 @@
-#define LINE 256
-#define WORD 30
-
 int length(char str[]);
 int get_line(char s[]);
 int getword(char w[]);

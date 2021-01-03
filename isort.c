@@ -2,10 +2,15 @@
 #include "isort.h"
 #define SIZE 50
 
+/*
+    The function will get a pointer to the array 
+    (not necessarily to the beginning of the array) and a number. 
+    The function will move the i members
+    Following in one cell array to the right
+*/
 int shift_element(int* arr, int i)
 {
     int startindex=0;
-  //  int* ptr = arr;
     int a =0 , b = *arr;
     while(startindex < i )
     {
@@ -15,47 +20,27 @@ int shift_element(int* arr, int i)
         *arr = a;
         startindex++;
     }
-   // printf("\n%d\n",b);// b save here like the integet how delited
     return b;
 }
+
+//this func sort the array 
 void insertion_sort(int* arr , int len)
 {
 
     int i=0 ,j=0;
- //   printf("was here\n");
     for(i=0 ; i < len-1 ; i++)
     {
-      //  printf("%d , %d \n",*(arr +i) ,*(arr +i+1));
         if(*(arr +i) > *(arr+i+1)){
-          //  printf("int tht first if : %d , %d \n",*(arr +i) ,*(arr +i+1));
             for(j=0 ; j < i+1 ; j++){
-                if(*(arr+j) < *(arr +1+i) && *(arr +j+1)>*(arr +1+i)){
-                 //   printf("int tht secound if : %d , %d, %d \n",*(arr +j) ,*(arr +j+1) ,*(arr +i+1));
+                if(*(arr+j) < *(arr +1+i) && *(arr +j+1)>*(arr +1+i)){//found the place arr +1+i shold be
                     int k = shift_element(arr+j , i+1-j);
-                 //   printf("*(arr +j +1) befor : %d" , *(arr +j +1));
                     *(arr +j +1) = k;
-                //    printf("*(arr +j +1) afterr : %d" , *(arr +j +1));
-
-              /*      int index=0;
-                    while (index <i+1){
-                        printf("%d ,", arr[index]);
-                        index++;
-        
-                    }
-                    printf("\n");*/
                 }
-                else if(j==0 && *arr > *(arr+1+i) ){
+                else if(j==0 && *arr > *(arr+1+i) ){//if itsh the smallest number
                     int k = shift_element(arr+j , i+1);
                     *arr = k;
-                 /*   int index=0;
-                    while (index <i+1){
-                        printf("%d ,", arr[index]);
-                        index++;
-        
-                    }
-                    printf("\n");*/
                 }
-                else if (*(arr+j) == *(arr +1+i)){
+                else if (*(arr+j) == *(arr +1+i)){//if exists some equals numbers 
                     shift_element(arr+j , i+1-j);
                 }
             }
@@ -63,17 +48,20 @@ void insertion_sort(int* arr , int len)
         }
     }
 }
+
+/*  the main func how ran the pogram */
 int main(){
     int arr[SIZE]={0};
     int index = 0;
     while(index < SIZE){
         int k;
-        scanf("%d" , &k);
+        scanf("%d" , &k);//get from the user number to array
         *(arr+index) = k;
         index++;
     }
-    insertion_sort(arr , SIZE);
+    insertion_sort(arr , SIZE); //sort
     index = 0;
+    //print the arr 
     while(index < SIZE){
         printf("%d," ,*(arr+index));
         index++;
